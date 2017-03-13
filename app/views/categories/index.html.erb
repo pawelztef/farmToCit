@@ -1,0 +1,26 @@
+<% provide(:title, "Categories") %>
+<br>
+<h1>Categories</h1>
+<div id="cat1">
+  <p><b>Do you know!</b> Eating three or more servings of fruit and vegetables 
+  every day</br> can help lower your risk of developing some serious,</br>
+  often chronic, health conditions, from age-related macular degeneration to 
+  inflammatory diseases and cancers.</br></br><b>Our produce</b> is filtered 
+  into categories such as herbs, fruit and vegetables.</br>Pick up your order 
+  from one of our available categories.</p>
+</div>
+<% @categories.each do |category| %>
+  <% @products.each do |cat, products| %>
+    <% if category.name == cat.name %>
+      <section>
+        <h3 id="cat2"><%= link_to cat.name, category_path(category), :class=>"specialA"  %></h3></br>
+        <p><%= image_tag cat.image.path, :width => '200px', :style => "float:right" %></p>
+      </section>
+    <% end %>
+  <% end %>
+<% end %>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+</br>
+<!-- <%= link_to 'New Category', new_category_path, :class=>"specialA"%> -->
+

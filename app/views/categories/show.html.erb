@@ -1,0 +1,25 @@
+<% provide(:title, "Category") %>
+</br>
+<% @products.each do |category, products| %>
+  <% if @category.name == category.name %>
+    <h1><%= category.name %></h1>
+    <% products.each do |product| %>
+<section>
+
+      <p><%= image_tag product.default_image.path %></p>
+
+
+      <h4 id="headerCategories"><%= link_to product.name, product_path(product.permalink), :width => '200px', :class=>"specialA"%></h4>
+      
+      <p><b>Description:</b></p> 
+      <p><%= product.short_description %></p>
+      <p class="price"><b>Price:</b> <%= number_to_currency product.price %></p>
+      <p><%= link_to image_tag("Basket.png"), product_path(product.permalink), 
+        :method => :post, :class=>"specialA btn"  %></p>
+</section>
+    <% end %>
+  <% end %>
+<% end %>
+
+<!-- <%= link_to 'Edit', edit_category_path(@category), :class=>"specialA"%> |
+<%= link_to 'Back', categories_path, :class=>"specialA"%> -->

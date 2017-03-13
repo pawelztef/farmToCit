@@ -1,0 +1,31 @@
+<% provide(:title, "Log in")  %>
+<style>
+	form {
+        margin: 0 auto;
+        width: 50%;
+        text-align: center;
+    }
+</style>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<%=	form_for(:session, url:	login_path) do	|f|	%></br>
+  <h1>Log In</h1></br>
+  <h3 class="specialH3">Email Address</h3>
+  <%= f.email_field :email, class: 'specialInput' %></br>
+  <h3 class="specialH3">Password</h3>
+  <%= f.password_field :password, class: 'specialInput' %></br>
+  <%= f.label :remember_me, class: "checkbox inline" do %>
+  <%= f.check_box	:remember_me %>
+  <span>Remember me on this computer</span>
+<% end %>
+</br></br>
+<%=	f.submit "LOG IN", class: "specialBtn"	%>
+<%	end	%>
+<strong>
+  <p style="text-align: center;">
+  New user? <%= link_to "Sign	up	now!",	signup_path, class: "specialA" %></p>
+</strong>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+

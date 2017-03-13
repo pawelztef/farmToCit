@@ -1,0 +1,23 @@
+<% provide(:title, "Place Order") %>
+<p>&nbsp;</p>
+<div class="outer">
+    <div class="mydiv">
+    <h1>Place your order</h1>
+    <p style="text-align:center">Brilliant! We have everything we need to
+    place the order. Check the items below carefully,
+    and if you're happy click 'Place Order' to submit the order.</p></br>
+    </div>
+</div>
+<div class="outer", style="width:100%;  ">
+    <div class="mydiv", style="width:70%; margin: 0 auto">
+        <%= render 'items', :order => current_order %>
+        </br>
+    </div>
+</div>
+<div class="outer">
+    <div class="mydiv" style="width:25%">
+        <p><%= button_to "Place order", {action: "confirmation"}, {:class => "specialBtn"} %></p>
+    </div>
+</div>
+
+<p class="pushP"></p>

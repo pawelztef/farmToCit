@@ -1,0 +1,45 @@
+<% provide(:title, "Checkout") %>
+<style>
+	form {
+        margin: 0 auto;
+        width: 50%;
+        text-align: center;
+    }
+</style>
+</br>
+<h1>Checkout</h1>
+<p id="notice"><%= notice %></p>
+<div class="divSpecial">
+    <%= render 'items', :order => current_order %>
+</div>
+<%= form_for @order, :url => checkout_path do |f| %>
+<% @order.errors.full_messages.each do |message| %>
+    <h4 style="color:#D12E2E"><%= message %></h4>
+<%end%>
+<dl>
+    <h3 class="specialH3">First Name</h3>
+    <dt><%= f.text_field :first_name, class: 'specialInput' %></dt> 
+    <h3 class="specialH3">Last Name</h3>
+    <dt><%= f.text_field :last_name, class: 'specialInput' %></dt>
+    <h3 class="specialH3">Address</h3>
+    <dt><%= f.text_field :billing_address1, class: 'specialInput' %></dt>
+    <dt><%= f.text_field :billing_address2, class: 'specialInput' %></dt>
+    <dt><%= f.text_field :billing_address3, class: 'specialInput' %></dt>
+    <dt><%= f.text_field :billing_address4, class: 'specialInput' %></dt>
+    <h3 class="specialH3">Postal Code</h3>
+    <dt><%= f.text_field :billing_postcode, class: 'specialInput' %></dt>
+    <h3 class="specialH3">Country</h3>
+    <dt><%= f.collection_select :billing_country_id, Shoppe::Country.ordered, 
+          :id, :name, :include_blank => true %></dt>
+    <h3 class="specialH3">Email Address</h3>
+    <dt><%= f.text_field :email_address, class: 'specialInput' %></dt>
+    <h3 class="specialH3">Phone Number</h3>
+    <dt><%= f.text_field :phone_number, class: 'specialInput' %></dt>
+    </br>
+    <dd><%= f.submit 'Continue', :class=>"specialBtn"  %></dd>
+</dl>
+</br>
+</br>
+<% end %>
+
+

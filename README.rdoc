@@ -1,0 +1,26 @@
+== README
+
+for convinient application use
+please loging to 
+
+https://c9.io/
+login: farmtocitytofarm@gmail.com
+password: password
+
+run wokspace farm_to_city_presentation
+start rails server 
+follow link: https://farm-to-city-presentation-pawelztef.c9users.io
+
+for see how backstage looks 
+please use 
+https://farm-to-city-presentation-pawelztef.c9users.io/shoppe
+admin@example.com
+password 
+
+
+for stripe payments please use this fake credit card details
+ card number 4242424242424242
+ exp. date   12 2017
+ cvc         663
+ 
+ 

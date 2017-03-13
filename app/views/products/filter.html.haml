@@ -1,0 +1,7 @@
+.category
+  </br>
+  %p.intro <h1>Products grown by </br></br> <b><em>#{params[:value]}</em></b> </h1>
+  - if @products.empty?
+    %p.noProducts There are no products matching your filter
+  - else
+    = render 'shared/product_list', :products => @products

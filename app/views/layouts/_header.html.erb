@@ -1,0 +1,28 @@
+<header>
+  <div id="topBar">
+    <% if current_order %>
+      <p style="padding:3px; float:right; position: relative; right: 140px">
+  	  You have <%= pluralize current_order.total_items, 'item'%> in your basket which cost
+  	  <%= number_to_currency current_order.total_before_tax %>.</p>
+    <% end %>
+  </div>
+  <div id="logoAndNav" class="containerSimple">
+    <a href="<%= root_path %>"><img id="logo" src="../assets/logo2.png" /></a>
+    <nav>
+      <ul>
+        <li><%= link_to	"HOME",	root_path %></li>
+		    <li><%= link_to "PRODUCTS", catalog_path %></li>
+		    <li><%=	link_to	"ABOUT", about_path %></li>
+		    <li><%= link_to "BASKET", basket_path %></li>
+		    <% if logged_in? %>
+		      <!-- <%= link_to 'CHECKOUT', checkout_path  %></li> -->
+			    <li><%= link_to "MY PAGE",	current_user %></li>
+			    <li><%=	link_to	"LOG OUT", logout_path,	method:	"delete" %></li>
+			  <% else	%>
+		      <li><%=	link_to	"LOG IN / SIGN UP", login_path %></li>
+			  <% end	%>
+		  </ul>
+		</nav>
+	</div>
+</header>
+

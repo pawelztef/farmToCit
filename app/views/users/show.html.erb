@@ -1,0 +1,28 @@
+<% provide(:title, "My Page") %>
+<style>
+	form {
+        margin: 0 auto;
+        width: 50%;
+        text-align: center;
+    }
+	
+</style>
+
+<%=	form_for(@user)	do	|f|	%>
+</br>
+	<h1>Settings</h1>
+		<%=	render	'shared/error_messages'	%>
+		<h3 class="specialH3">Name</h3>
+		<%=	f.text_field	:name,	class: 'specialInput'	%>
+		<h3 class="specialH3">Email Address</h3>
+		<%=	f.email_field	:email,	class: 'specialInput'	%>
+		<h3 class="specialH3">Password</h3>
+		<%=	f.password_field	:password,	class: 'specialInput'	%>
+		<h3 class="specialH3">Confirm Password</h3>
+		<%=	f.password_field	:password_confirmation,	class: 'specialInput'	%>
+		<br>
+		<br>
+		<%=	f.submit 'SAVE CHANGES', class: "specialBtn"%>
+		<br>
+		<br>
+<% end	%>

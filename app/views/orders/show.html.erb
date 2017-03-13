@@ -1,0 +1,17 @@
+<% provide(:title, "Basket") %>
+<p>&nbsp;</p>
+<h1>Basket</h1>
+<div class="divSpecial">
+<%= render 'items', :order => current_order %>
+</div>
+
+<p style="text-align: center;">
+    <%= link_to 'EMPTY BASKET', basket_path, :method => :delete,  :class=>"specialBtn"  %>
+    <% if logged_in? %>
+        <%= link_to 'CHECKOUT', checkout_path, :class=>"specialBtn"  %>
+    <% else %>
+        <%= link_to 'CHECKOUT', login_path, class: "specialBtn" %>
+    <% end %>
+    </p>
+    <p class="pushP"></p>
+

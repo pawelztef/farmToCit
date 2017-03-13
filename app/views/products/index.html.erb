@@ -1,0 +1,17 @@
+<% provide(:title, "Products") %>
+<br>
+<h1>Products</h1>
+<% @products.each do |category, products| %>
+  <% products.each do |product| %>
+	<section>
+	  <p><%= link_to (image_tag product.default_image.path, :width => '200px', :style => "float:right"), product_path(product.permalink) %></p>
+	  <p><%= link_to product.name + " - " + category.name, product_path(product.permalink), :class=>"specialA" %></p>
+	  <p><b>Description:</b></p>
+	  <p><%= product.short_description %></p>
+	  <p class="price"><b>Price:</b> <%= number_to_currency product.price %></p>
+	  <p><%= link_to image_tag("Basket.png"), product_path(product.permalink), 
+        :method => :post, :class=>"specialA btn"  %></p>
+          
+	</section>
+  <% end %>
+<% end %>

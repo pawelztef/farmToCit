@@ -1,0 +1,62 @@
+<%= shoppe_stripe_javascript %>
+<% provide(:title, "Payment") %>
+<style>
+ #payment {
+   border: none;
+   text-align:center;
+   background-color:rgba(0, 0, 0, 0);
+ }
+ #payment td {
+   border: none;
+ }
+ 
+</style>
+
+
+<p>&nbsp;</p>
+<h1>Make your payment</h1>
+<div class="outer">
+<div class="mydiv">
+<%= form_tag nil, class: "stripeForm" do %>
+<%= hidden_field_tag "stripe_token", nil, "data-stripe" => "token" %>
+<table id="payment">
+  <tr>
+    <td><%= label_tag 'card_number' %></td>
+  </tr>
+  <tr>
+    <td><%= text_field_tag 'card_number', nil, 
+      name: nil, "data-stripe" => "number" %></td>
+  </tr>
+  <tr>
+    <td><%= label_tag 'expiry_month' %></td>
+  </tr>
+  <tr>
+    <td><%= text_field_tag 'expiry_month', nil, 
+      name: nil, "data-stripe" => "exp_month" %></td>
+  </tr>
+  <tr>
+    <td><%= label_tag 'expiry_year' %></td>
+  </tr>
+  <tr>
+    <td><%= text_field_tag 'expiry_year', nil, name: nil, "data-stripe" => "exp_year" %></td>
+  </tr>
+  <tr>
+    <td><%= label_tag 'security_code' %></td>
+  </tr>
+  <tr>
+    <td><%= text_field_tag 'security_code', nil, name: nil, "data-stripe" => "cvc" %></td></br>
+  </tr>
+  <tr>
+    <td></br><%= submit_tag "Continue", :class=>"specialBtn" %></td>
+  </tr>
+</table>
+<% end %>
+</div>
+<p class="pushP"></p>
+
+</div>
+
+
+
+
+

@@ -1,0 +1,25 @@
+<!-- %ul.products
+  - for product in products
+    %li
+      .img{:style => product.default_image ? "background-image:url(#{product.default_image.path})" : ''}
+      %h4= link_to product.name, product_path(product.product_category.permalink, product.permalink)
+      %p.info= truncate product.short_description, :length => 90
+      %p.buttons 
+        = link_to "Info", product_path(product.product_category.permalink, product.permalink)
+        - if product.orderable?
+          = link_to "Add", buy_product_path(product.product_category.permalink, product.permalink), :class => 'add', :method => :post
+      %p.price= number_to_currency product.price -->
+      
+      
+<% products.each do |product| %>
+	<section>
+	  <p><%= image_tag product.default_image.path, :width => '200px', :style => "float:right" %></p>
+	  <p><%= link_to product.name, product_path(product.permalink), :class=>"specialA" %></p>
+	  <p><b>Description:</b></p>
+	  <p><%= product.short_description %></p>
+	  <p class="price"><b>Price:</b> <%= number_to_currency product.price %></p>
+	  <p><%= link_to image_tag("Basket.png"), product_path(product.permalink), 
+        :method => :post, :class=>"specialA btn"  %></p>
+          
+	</section>
+<% end %>
